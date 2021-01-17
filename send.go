@@ -22,9 +22,12 @@ const (
 )
 
 var (
+	// ErrUserAccessDenied access denied error
 	ErrUserAccessDenied = errors.New("you do not have access to the requested resource")
-	ErrNotFound         = errors.New("the requested resource not found")
-	ErrTooManyRequests  = errors.New("you have exceeded throttle")
+	// ErrNotFound 404 error
+	ErrNotFound = errors.New("the requested resource not found")
+	// ErrTooManyRequests error too many requests
+	ErrTooManyRequests = errors.New("you have exceeded throttle")
 )
 
 // API - interface of MS Teams notify
@@ -38,14 +41,14 @@ type Options struct {
 	Verbose bool
 }
 
+// Client MS teams Http client
 type Client struct {
 	httpClient *http.Client
 	options    *Options
 }
 
-// NewClient - create a brand new client for MS Teams notify
+// NewClient create a brand new client for MS Teams notify
 func NewClient(options Options) *Client {
-
 	if options.Timeout.String() == "" {
 		options.Timeout = 30 * time.Second
 	}
@@ -60,7 +63,7 @@ func NewClient(options Options) *Client {
 	return teamsClient
 }
 
-func (c *Client) newRequest(ctx context.Context, method, reqUrl string, payload interface{}) (*http.Request, error) {
+func (c *Client) newRequest(ctx context.Context, method, reqURL string, payload interface{}) (*http.Request, error) {
 	var reqBody io.Reader
 	if payload != nil {
 		bodyBytes, err := json.Marshal(payload)
@@ -70,7 +73,7 @@ func (c *Client) newRequest(ctx context.Context, method, reqUrl string, payload 
 		reqBody = bytes.NewReader(bodyBytes)
 	}
 
-	req, err := http.NewRequest(method, reqUrl, reqBody)
+	req, err := http.NewRequest(method, reqURL, reqBody)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create HTTP request: %v", err)
 	}
@@ -188,10 +191,8 @@ func IsValidInput(webhookMessage MessageCard, webhookURL string) (bool, error) {
 	return true, nil
 }
 
-// IsValidWebhookURL performs validation checks on the webhook URL used to
-// submit messages to Microsoft Teams.
+// IsValidWebhookURL performs validation checks on the webhook URL used to submit messages to Microsoft Teams.
 func IsValidWebhookURL(webhookURL string) (bool, error) {
-
 	switch {
 	case strings.HasPrefix(webhookURL, WebhookURLOfficeComPrefix):
 	case strings.HasPrefix(webhookURL, WebhookURLOffice365Prefix):
