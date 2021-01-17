@@ -131,9 +131,11 @@ func (c *Client) doRequest(r *http.Request, v interface{}) error {
 	}
 
 	defer func() {
-		err = resp.Body.Close()
-		if err != nil {
-			log.Println("Error: error in closing response body, ", err)
+		if resp.Body != nil {
+			err = resp.Body.Close()
+			if err != nil {
+				log.Println("Error: error in closing response body, ", err)
+			}
 		}
 	}()
 

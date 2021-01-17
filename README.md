@@ -12,9 +12,7 @@
 
 # go-ms-teams
 
-> A package to send messages to Microsoft Teams (channels)
-
-...
+A package to send messages to Microsoft Teams
 
 # Usage
 
@@ -74,7 +72,7 @@ func sendTheMessage() error {
 
 ***
 
-[travis-image]: https://travis-ci.org/vikramarsid/go-ms-teams.svg?branch=master
+[travis-image]: https://travis-ci.org/vikramarsid/go-ms-teams.svg?branch=main
 [travis-url]: https://travis-ci.org/vikramarsid/go-ms-teams
 
 [githubtag-image]: https://img.shields.io/github/tag/vikramarsid/go-ms-teams.svg?style=flat
@@ -83,7 +81,7 @@ func sendTheMessage() error {
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/fe69cc992370b3f97d94/maintainability
 [codeclimate-url]: https://codeclimate.com/github/vikramarsid/go-ms-teams/maintainability
 
-[codecov-image]: https://codecov.io/gh/vikramarsid/go-ms-teams/branch/master/graph/badge.svg
+[codecov-image]: https://codecov.io/gh/vikramarsid/go-ms-teams/branch/main/graph/badge.svg?token=dSLAzNgptq
 [codecov-url]: https://codecov.io/gh/vikramarsid/go-ms-teams
 
 [goreport-image]: https://goreportcard.com/badge/github.com/vikramarsid/go-ms-teams
