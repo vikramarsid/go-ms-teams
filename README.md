@@ -1,7 +1,6 @@
 [![Build Status][travis-image]][travis-url]
 [![Github Tag][githubtag-image]][githubtag-url]
 
-[![Coverage Status][coveralls-image]][coveralls-url]
 [![Maintainability][codeclimate-image]][codeclimate-url]
 [![codecov][codecov-image]][codecov-url]
 
@@ -80,9 +79,6 @@ func sendTheMessage() error {
 
 [githubtag-image]: https://img.shields.io/github/tag/vikramarsid/go-ms-teams.svg?style=flat
 [githubtag-url]: https://github.com/vikramarsid/go-ms-teams
-
-[coveralls-image]: https://coveralls.io/repos/github/vikramarsid/go-ms-teams/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/vikramarsid/go-ms-teams?branch=master
 
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/fe69cc992370b3f97d94/maintainability
 [codeclimate-url]: https://codeclimate.com/github/vikramarsid/go-ms-teams/maintainability
